@@ -1,4 +1,5 @@
 "use client"
+import { Button } from "@heroui/react"
 
 import { useAppStore } from "../lib"
 
@@ -16,9 +17,9 @@ export function ThemePanel(): JSX.Element {
             <p>
                 Theme: <span data-testid="theme-value">{theme}</span>
             </p>
-            <button data-testid="btn-toggle-theme" onClick={toggleTheme}>
+            <Button data-testid="btn-toggle-theme" onClick={toggleTheme}>
                 toggle theme
-            </button>
+            </Button>
         </section>
     )
 }

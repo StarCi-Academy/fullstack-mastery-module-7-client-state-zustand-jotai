@@ -1,4 +1,5 @@
 "use client"
+import { Button } from "@heroui/react"
 
 import { useAppStore } from "../lib"
 
@@ -15,12 +16,12 @@ export function UserPanel(): JSX.Element {
         <section data-testid="user-panel">
             <h2>User slice</h2>
             <p data-testid="user-name">{user ? user.name : "guest"}</p>
-            <button data-testid="btn-login" onClick={(): void => login(1, "Alice")}>
+            <Button data-testid="btn-login" onClick={(): void => login(1, "Alice")}>
                 login as Alice
-            </button>
-            <button data-testid="btn-logout" onClick={logout}>
+            </Button>
+            <Button data-testid="btn-logout" onClick={logout}>
                 logout
-            </button>
+            </Button>
         </section>
     )
 }

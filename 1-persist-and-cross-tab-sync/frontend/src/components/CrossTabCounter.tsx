@@ -1,4 +1,5 @@
 "use client"
+import { Button } from "@heroui/react"
 
 import { useEffect } from "react"
 import { useCounterStore, attachCrossTabSync } from "../lib"
@@ -29,15 +30,15 @@ export function CrossTabCounter(): JSX.Element {
             <p>
                 Count: <span data-testid="count-value">{count}</span>
             </p>
-            <button data-testid="btn-inc" onClick={increment}>
+            <Button data-testid="btn-inc" onClick={increment}>
                 +1
-            </button>
-            <button data-testid="btn-dec" onClick={decrement}>
+            </Button>
+            <Button data-testid="btn-dec" onClick={decrement}>
                 -1
-            </button>
-            <button data-testid="btn-reset" onClick={reset}>
+            </Button>
+            <Button data-testid="btn-reset" onClick={reset}>
                 reset
-            </button>
+            </Button>
         </section>
     )
 }

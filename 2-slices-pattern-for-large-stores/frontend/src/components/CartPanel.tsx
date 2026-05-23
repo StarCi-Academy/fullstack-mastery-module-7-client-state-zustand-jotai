@@ -1,4 +1,5 @@
 "use client"
+import { Button } from "@heroui/react"
 
 import { useAppStore } from "../lib"
 
@@ -24,15 +25,15 @@ export function CartPanel(): JSX.Element {
                     </li>
                 ))}
             </ul>
-            <button
+            <Button
                 data-testid="btn-add-keyboard"
                 onClick={(): void => addItem({ id: 101, name: "Keyboard", quantity: 1 })}
             >
                 add keyboard
-            </button>
-            <button data-testid="btn-clear-cart" onClick={clearCart}>
+            </Button>
+            <Button data-testid="btn-clear-cart" onClick={clearCart}>
                 clear cart
-            </button>
+            </Button>
         </section>
     )
 }

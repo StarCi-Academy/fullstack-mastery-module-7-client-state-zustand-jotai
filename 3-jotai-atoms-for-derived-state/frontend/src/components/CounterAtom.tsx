@@ -1,4 +1,5 @@
 "use client"
+import { Button } from "@heroui/react"
 
 import { useAtom } from "jotai"
 import { counterAtom } from "../lib"
@@ -15,15 +16,15 @@ export function CounterAtom(): JSX.Element {
             <p>
                 count: <span data-testid="count-value">{count}</span>
             </p>
-            <button data-testid="btn-inc" onClick={(): void => setCount((c) => c + 1)}>
+            <Button data-testid="btn-inc" onClick={(): void => setCount((c) => c + 1)}>
                 +1
-            </button>
-            <button data-testid="btn-dec" onClick={(): void => setCount((c) => c - 1)}>
+            </Button>
+            <Button data-testid="btn-dec" onClick={(): void => setCount((c) => c - 1)}>
                 -1
-            </button>
-            <button data-testid="btn-reset" onClick={(): void => setCount(0)}>
+            </Button>
+            <Button data-testid="btn-reset" onClick={(): void => setCount(0)}>
                 reset
-            </button>
+            </Button>
         </section>
     )
 }
