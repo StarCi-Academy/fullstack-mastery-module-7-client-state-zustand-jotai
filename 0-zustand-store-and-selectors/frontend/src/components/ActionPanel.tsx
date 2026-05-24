@@ -23,13 +23,13 @@ export function ActionPanel(): JSX.Element {
     return (
         <section data-testid="action-panel">
             <h2>Component B — subscribes to actions only</h2>
-            <Button data-testid="btn-inc" onClick={increment}>
+            <Button data-testid="btn-inc" onPress={increment}>
                 +1
             </Button>
-            <Button data-testid="btn-dec" onClick={decrement}>
+            <Button data-testid="btn-dec" onPress={decrement}>
                 -1
             </Button>
-            <Button data-testid="btn-reset" onClick={reset}>
+            <Button data-testid="btn-reset" onPress={reset}>
                 reset
             </Button>
             <p>

@@ -17,7 +17,7 @@ export function ThemePanel(): JSX.Element {
             <p>
                 Theme: <span data-testid="theme-value">{theme}</span>
             </p>
-            <Button data-testid="btn-toggle-theme" onClick={toggleTheme}>
+            <Button data-testid="btn-toggle-theme" onPress={toggleTheme}>
                 toggle theme
             </Button>
         </section>

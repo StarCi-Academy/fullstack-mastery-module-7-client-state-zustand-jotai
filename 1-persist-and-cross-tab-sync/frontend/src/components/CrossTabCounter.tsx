@@ -30,13 +30,13 @@ export function CrossTabCounter(): JSX.Element {
             <p>
                 Count: <span data-testid="count-value">{count}</span>
             </p>
-            <Button data-testid="btn-inc" onClick={increment}>
+            <Button data-testid="btn-inc" onPress={increment}>
                 +1
             </Button>
-            <Button data-testid="btn-dec" onClick={decrement}>
+            <Button data-testid="btn-dec" onPress={decrement}>
                 -1
             </Button>
-            <Button data-testid="btn-reset" onClick={reset}>
+            <Button data-testid="btn-reset" onPress={reset}>
                 reset
             </Button>
         </section>

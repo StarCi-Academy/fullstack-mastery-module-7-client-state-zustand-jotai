@@ -16,10 +16,10 @@ export function UserPanel(): JSX.Element {
         <section data-testid="user-panel">
             <h2>User slice</h2>
             <p data-testid="user-name">{user ? user.name : "guest"}</p>
-            <Button data-testid="btn-login" onClick={(): void => login(1, "Alice")}>
+            <Button data-testid="btn-login" onPress={(): void => login(1, "Alice")}>
                 login as Alice
             </Button>
-            <Button data-testid="btn-logout" onClick={logout}>
+            <Button data-testid="btn-logout" onPress={logout}>
                 logout
             </Button>
         </section>

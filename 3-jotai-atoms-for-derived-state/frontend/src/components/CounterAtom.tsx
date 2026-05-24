@@ -16,13 +16,13 @@ export function CounterAtom(): JSX.Element {
             <p>
                 count: <span data-testid="count-value">{count}</span>
             </p>
-            <Button data-testid="btn-inc" onClick={(): void => setCount((c) => c + 1)}>
+            <Button data-testid="btn-inc" onPress={(): void => setCount((c) => c + 1)}>
                 +1
             </Button>
-            <Button data-testid="btn-dec" onClick={(): void => setCount((c) => c - 1)}>
+            <Button data-testid="btn-dec" onPress={(): void => setCount((c) => c - 1)}>
                 -1
             </Button>
-            <Button data-testid="btn-reset" onClick={(): void => setCount(0)}>
+            <Button data-testid="btn-reset" onPress={(): void => setCount(0)}>
                 reset
             </Button>
         </section>

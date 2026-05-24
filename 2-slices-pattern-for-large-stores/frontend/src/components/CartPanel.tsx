@@ -27,11 +27,11 @@ export function CartPanel(): JSX.Element {
             </ul>
             <Button
                 data-testid="btn-add-keyboard"
-                onClick={(): void => addItem({ id: 101, name: "Keyboard", quantity: 1 })}
+                onPress={(): void => addItem({ id: 101, name: "Keyboard", quantity: 1 })}
             >
                 add keyboard
             </Button>
-            <Button data-testid="btn-clear-cart" onClick={clearCart}>
+            <Button data-testid="btn-clear-cart" onPress={clearCart}>
                 clear cart
             </Button>
         </section>
