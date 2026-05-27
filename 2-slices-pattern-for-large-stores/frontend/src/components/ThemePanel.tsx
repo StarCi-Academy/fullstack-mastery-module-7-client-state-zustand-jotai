@@ -1,6 +1,6 @@
 "use client"
-import { Button } from "@heroui/react"
 
+import { Avatar, Button, Card, Chip } from "@heroui/react"
 import { useAppStore } from "../lib"
 
 /**
@@ -12,14 +12,49 @@ export function ThemePanel(): JSX.Element {
     const toggleTheme = useAppStore((s) => s.toggleTheme)
 
     return (
-        <section data-testid="theme-panel" data-theme={theme}>
-            <h2>Theme slice</h2>
-            <p>
-                Theme: <span data-testid="theme-value">{theme}</span>
-            </p>
-            <Button data-testid="btn-toggle-theme" onPress={toggleTheme}>
-                toggle theme
-            </Button>
-        </section>
+        <Card
+            data-testid="theme-panel"
+            data-theme={theme}
+            className="border border-default-200/60 rounded-large p-5"
+        >
+            <Card.Header className="flex items-center justify-between gap-3 p-0">
+                <div className="flex items-center gap-3">
+                    <Avatar color="warning" size="sm">T</Avatar>
+                    <div className="flex flex-col">
+                        <span className="text-base font-semibold text-foreground">
+                            Theme slice
+                        </span>
+                        <span className="text-xs text-default-500">UI mode</span>
+                    </div>
+                </div>
+                <Chip
+                    color={theme === "dark" ? "accent" : "warning"}
+                    variant="soft"
+                    size="sm"
+                >
+                    {theme}
+                </Chip>
+            </Card.Header>
+            <Card.Content className="flex flex-col gap-4 pt-4 p-0">
+                <div className="flex flex-col gap-1">
+                    <span className="text-xs uppercase tracking-wide text-default-500">
+                        Current theme
+                    </span>
+                    <span
+                        data-testid="theme-value"
+                        className="text-2xl font-semibold capitalize text-foreground"
+                    >
+                        {theme}
+                    </span>
+                </div>
+                <Button
+                    data-testid="btn-toggle-theme"
+                    variant="primary"
+                    onPress={toggleTheme}
+                >
+                    toggle theme
+                </Button>
+            </Card.Content>
+        </Card>
     )
 }

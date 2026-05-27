@@ -8,14 +8,14 @@ export default defineConfig({
     testDir: "./scripts",
     timeout: 30_000,
     use: {
-        baseURL: "http://localhost:3110",
+        baseURL: "http://localhost:3230",
         trace: "on-first-retry",
         screenshot: "only-on-failure",
     },
     webServer: {
         command: "npm install --prefer-offline && npm run dev",
         cwd: "../frontend",
-        port: 3110,
+        port: 3230,
         reuseExistingServer: !process.env.CI,
         timeout: 120_000,
     },

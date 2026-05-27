@@ -1,6 +1,6 @@
 "use client"
-import { Button } from "@heroui/react"
 
+import { Avatar, Button, Card, Chip } from "@heroui/react"
 import { useRef } from "react"
 import { useCounterStore } from "../lib"
 
@@ -9,8 +9,8 @@ import { useCounterStore } from "../lib"
  * (EN: Component B — subscribes only to actions (stable refs) → does NOT re-render when count changes.)
  */
 export function ActionPanel(): JSX.Element {
-    // Lấy 2 action — Zustand giữ reference ổn định, nên selector này không gây re-render.
-    // (EN: Pick two actions — Zustand keeps stable refs so this selector does not cause re-renders.)
+    // Lấy 3 action — Zustand giữ reference ổn định, nên selector này không gây re-render.
+    // (EN: Pick three actions — Zustand keeps stable refs so this selector does not cause re-renders.)
     const increment = useCounterStore((s) => s.increment)
     const decrement = useCounterStore((s) => s.decrement)
     const reset = useCounterStore((s) => s.reset)
@@ -21,20 +21,46 @@ export function ActionPanel(): JSX.Element {
     renderRef.current += 1
 
     return (
-        <section data-testid="action-panel">
-            <h2>Component B — subscribes to actions only</h2>
-            <Button data-testid="btn-inc" onPress={increment}>
-                +1
-            </Button>
-            <Button data-testid="btn-dec" onPress={decrement}>
-                -1
-            </Button>
-            <Button data-testid="btn-reset" onPress={reset}>
-                reset
-            </Button>
-            <p>
-                Render count B: <span data-testid="render-b">{renderRef.current}</span>
-            </p>
-        </section>
+        <Card
+            data-testid="action-panel"
+            className="border border-default-200/60 rounded-large p-5"
+        >
+            <Card.Header className="flex items-center justify-between gap-3 p-0">
+                <div className="flex items-center gap-3">
+                    <Avatar color="success" size="sm">B</Avatar>
+                    <div className="flex flex-col">
+                        <span className="text-base font-semibold text-foreground">
+                            Component B
+                        </span>
+                        <span className="text-xs text-default-500">
+                            subscribes to actions only
+                        </span>
+                    </div>
+                </div>
+                <Chip color="success" variant="soft" size="sm">stable refs</Chip>
+            </Card.Header>
+            <Card.Content className="flex flex-col gap-4 pt-4 p-0">
+                <div className="flex flex-wrap gap-2">
+                    <Button data-testid="btn-inc" variant="primary" onPress={increment}>
+                        +1
+                    </Button>
+                    <Button data-testid="btn-dec" variant="outline" onPress={decrement}>
+                        -1
+                    </Button>
+                    <Button data-testid="btn-reset" variant="ghost" onPress={reset}>
+                        reset
+                    </Button>
+                </div>
+                <div className="flex items-center justify-between rounded-medium bg-default-100 px-3 py-2">
+                    <span className="text-sm text-default-600">Renders (B)</span>
+                    <span
+                        data-testid="render-b"
+                        className="text-sm font-semibold tabular-nums text-foreground"
+                    >
+                        {renderRef.current}
+                    </span>
+                </div>
+            </Card.Content>
+        </Card>
     )
 }
